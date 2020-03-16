@@ -7,9 +7,10 @@
         <groupId>com.lonie.biz</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
+    <packaging>jar</packaging>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>main</artifactId>
-
+    <artifactId>web</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
 
 </project>
