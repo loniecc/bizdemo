@@ -1,6 +1,7 @@
 package com.lonie.biz.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -14,5 +15,8 @@ import com.lonie.biz.domain.model.UserDO;
 public interface UserMapper {
 
     List<UserDO> queryAllUser();
+
+
+    UserDO selectUserById(@Param("id") long id);
 
 }

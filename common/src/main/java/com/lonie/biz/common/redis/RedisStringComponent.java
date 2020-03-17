@@ -14,6 +14,9 @@ import redis.clients.jedis.JedisPool;
 public class RedisStringComponent {
 
     @Autowired
+    RedisCommonComponent mRedisCommonComponent;
+
+    @Autowired
     private JedisPool mJedisPool;
 
     public String getValue(String key) {
@@ -27,7 +30,7 @@ public class RedisStringComponent {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            RedisCommonComponent.returnResource(mJedisPool, jedis);
+            mRedisCommonComponent.returnResource(mJedisPool, jedis);
         }
         return result;
     }
@@ -41,9 +44,44 @@ public class RedisStringComponent {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            RedisCommonComponent.returnResource(mJedisPool, jedis);
+            mRedisCommonComponent.returnResource(mJedisPool, jedis);
         }
         return false;
     }
+
+    public long getExpireLeftTime(String key) {
+
+        Jedis jedis = null;
+        long result = 0;
+
+        try {
+            jedis = mJedisPool.getResource();
+            result = jedis.ttl(key);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            mRedisCommonComponent.returnResource(mJedisPool, jedis);
+        }
+        return result;
+    }
+
+
+    public long incr(String key) {
+
+        Jedis jedis = null;
+        long result = 0;
+
+        try {
+            jedis = mJedisPool.getResource();
+            result = jedis.incr(key);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            mRedisCommonComponent.returnResource(mJedisPool, jedis);
+        }
+        return result;
+    }
+
+
 
 }

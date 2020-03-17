@@ -1,3 +1,5 @@
+package com.lonie.biz.service;
+
 import com.lonie.biz.bizdemo.BizdemoApplication;
 import com.lonie.biz.common.redis.RedisStringComponent;
 
@@ -7,29 +9,33 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import redis.clients.jedis.JedisPool;
 
 /**
- * @author huzeming Created time 2020/3/16 : 1:22 下午 Desc:
+ * @author huzeming Created time 2020/3/17 : 9:08 下午 Desc:
  */
-
-
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = BizdemoApplication.class)
-public class TestRedis {
+public class LimitLoginServiceTest {
 
     @Autowired
-    private RedisStringComponent mJedisPool;
+    private LimitLoginService mLimitLoginService;
 
     @Autowired
     private RedisStringComponent mRedisStringComponent;
 
+    @Test
+    public void testLogin() {
+
+        for (int i = 0; i < 5; i++) {
+            System.out.println(mLimitLoginService.login(1, "qwe").getResultMsg());
+        }
+
+    }
 
     @Test
     public void testRedisPing(){
-
-        System.out.println(mJedisPool.getValue("test"));
-
+        System.out.println(mRedisStringComponent.incr("test"));
+        System.out.println(mRedisStringComponent.getValue("test"));
     }
 }
