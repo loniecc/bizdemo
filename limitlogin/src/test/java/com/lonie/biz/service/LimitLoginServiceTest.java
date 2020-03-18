@@ -1,6 +1,6 @@
 package com.lonie.biz.service;
 
-import com.lonie.biz.bizdemo.BizdemoApplication;
+import com.lonie.biz.LimitLoginApplication;
 import com.lonie.biz.common.redis.RedisStringComponent;
 
 import org.junit.Test;
@@ -9,13 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-
 /**
  * @author huzeming Created time 2020/3/17 : 9:08 下午 Desc:
  */
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = BizdemoApplication.class)
+@SpringBootTest(classes = LimitLoginApplication.class)
 public class LimitLoginServiceTest {
 
     @Autowired
@@ -34,7 +33,7 @@ public class LimitLoginServiceTest {
     }
 
     @Test
-    public void testRedisPing(){
+    public void testRedisPing() {
         System.out.println(mRedisStringComponent.incr("test"));
         System.out.println(mRedisStringComponent.getValue("test"));
     }

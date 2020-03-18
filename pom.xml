@@ -28,6 +28,9 @@
         <alibaba-fastjson-version>1.2.65</alibaba-fastjson-version>
         <org-mybatis-version>2.1.2</org-mybatis-version>
         <org-lombok-version>1.18.12</org-lombok-version>
+        <!-- module version       -->
+        <module-common-version>0.0.1-SNAPSHOT</module-common-version>
+        <module-limitlogin-version>0.0.1-SNAPSHOT</module-limitlogin-version>
     </properties>
 
     <dependencyManagement>
@@ -91,6 +94,21 @@
                 <version>${alibaba-fastjson-version}</version>
             </dependency>
 
+            <!--moudle -->
+            <dependency>
+                <groupId>com.lonie.biz</groupId>
+                <artifactId>common</artifactId>
+                <version>${module-common-version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.lonie.biz</groupId>
+                <artifactId>limitlogin</artifactId>
+                <version>${module-limitlogin-version}</version>
+            </dependency>
+
+
+            <!-- test-->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-test</artifactId>
@@ -98,11 +116,11 @@
                 <scope>test</scope>
             </dependency>
 
-            <dependency>
-                <groupId>org.springframework.kafka</groupId>
-                <artifactId>spring-kafka-test</artifactId>
-                <scope>test</scope>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>org.springframework.kafka</groupId>-->
+<!--                <artifactId>spring-kafka-test</artifactId>-->
+<!--                <scope>test</scope>-->
+<!--            </dependency>-->
 
             <dependency>
                 <groupId>junit</groupId>
