@@ -8,6 +8,7 @@
         <module>common</module>
         <module>limitlogin</module>
         <module>javademo</module>
+        <module>coding</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
