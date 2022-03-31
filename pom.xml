@@ -24,7 +24,7 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <org.springboot.version>2.2.5.RELEASE</org.springboot.version>
+        <org.springboot.version>2.5.12</org.springboot.version>
         <org.springweb.version>4.3.20.RELEASE</org.springweb.version>
         <alibaba-fastjson-version>1.2.65</alibaba-fastjson-version>
         <org-mybatis-version>2.1.2</org-mybatis-version>
